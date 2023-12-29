@@ -60,21 +60,13 @@ def index():
                     logging.info("rating")
 
                 try:
-                    #commentHead.encode(encoding='utf-8')
-                    commentHead = commentbox.div.div.div.p.text
-
-                except:
-                    commentHead = 'No Comment Heading'
-                    logging.info(commentHead)
-                try:
                     comtag = commentbox.div.div.find_all('div', {'class': ''})
                     #custComment.encode(encoding='utf-8')
                     custComment = comtag[0].div.text
                 except Exception as e:
                     logging.info(e)
 
-                mydict = {"Product": searchString, "Name": name, "Rating": rating, "CommentHead": commentHead,
-                          "Comment": custComment}
+                mydict = {"Product": searchString, "Name": name, "Rating": rating, "Comment": custComment}
                 reviews.append(mydict)
                 logging.info("log my final result {}".format(reviews))
             uri = "mongodb+srv://jayantnagpure024:JAYANT@cluster0.mcoihgy.mongodb.net/?retryWrites=true&w=majority"
